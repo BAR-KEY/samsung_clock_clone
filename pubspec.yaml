@@ -83,17 +83,17 @@ flutter:
   #       - asset: fonts/TrajanPro.ttf
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
-  fonts:
-    - family: NanumBarunGothic
-      fonts:
-        - asset: NanumBarunGothicUltraLight.ttf
-          weight: 200
-        - asset: NanumBarunGothicLight.ttf
-          weight: 400
-        - asset: NanumBarunGothic.ttf
-          weight: 600
-        - asset: NanumBarunGothicBold.ttf
-          weight: 800
+  # fonts:
+  #   - family: NanumBarunGothic
+  #     fonts:
+  #       - asset: NanumBarunGothicUltraLight.ttf
+  #         weight: 200
+  #       - asset: NanumBarunGothicLight.ttf
+  #         weight: 400
+  #       - asset: NanumBarunGothic.ttf
+  #         weight: 600
+  #       - asset: NanumBarunGothicBold.ttf
+  #         weight: 800
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

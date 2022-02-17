@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:samsung_clock_clone/config/palette.dart';
+import 'package:samsung_clock_clone/pages/addalarm.dart';
+import 'package:get/get.dart';
 
 void main() {
   runApp(
-    const MaterialApp(title: 'Samsung Clock', home: MyApp()),
+    GetMaterialApp(
+      title: 'Samsung Clock',
+      home: const MyApp(),
+      theme: ThemeData(),
+    ),
   );
 }
 
@@ -24,7 +30,7 @@ class _MyAppState extends State<MyApp> {
 
   test() {
     if (isAlarm == true) {
-      return const Text('isAlarm');
+      return const Alarm();
     }
     if (isWorldTime == true) {
       return const Text('isWorldTime');
@@ -41,6 +47,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        backgroundColor: Palette.mainColor,
         body: test(),
         bottomNavigationBar:
             Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
@@ -116,21 +123,56 @@ class BottonButton extends StatelessWidget {
               style: isSelected
                   ? const TextStyle(
                       shadows: [
-                        Shadow(color: Palette.basicColor, offset: Offset(0, -2))
+                        Shadow(color: Palette.basicColor, offset: Offset(0, -1))
                       ],
-                      fontFamily: 'NanumBarunGothic',
+                      // fontFamily: 'NanumBarunGothic',
                       fontWeight: FontWeight.w800,
                       color: Colors.transparent,
                       decorationColor: Palette.basicColor,
                       decoration: TextDecoration.underline,
                       decorationThickness: 3,
                     )
-                  : const TextStyle(color: Palette.basicColor2),
+                  : const TextStyle(shadows: [
+                      Shadow(color: Palette.basicColor2, offset: Offset(0, -1))
+                    ], color: Colors.transparent),
             )),
         style: TextButton.styleFrom(
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(20.0),
           ),
         ));
+  }
+}
+
+class Alarm extends StatelessWidget {
+  const Alarm({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Palette.mainColor,
+      appBar: AppBar(
+        backgroundColor: Palette.mainColor,
+        elevation: 0,
+        title: const Text(
+          '알람',
+          style:
+              TextStyle(color: Palette.basicColor, fontWeight: FontWeight.w800),
+        ),
+        actions: [
+          IconButton(
+            onPressed: () {
+              Get.to(() => const AddAlarm());
+            },
+            icon: const Icon(Icons.add),
+            color: Palette.basicColor,
+          ),
+          IconButton(
+              onPressed: () {},
+              icon: const Icon(Icons.more_vert),
+              color: Palette.basicColor)
+        ],
+      ),
+    );
   }
 }
